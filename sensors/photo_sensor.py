@@ -1,4 +1,4 @@
-import RPi.GPIO
+import RPi.GPIO as GPIO
 import time
 
 # Refer to the pin numbers by their pin number since BCM codes change between Pi versions.
