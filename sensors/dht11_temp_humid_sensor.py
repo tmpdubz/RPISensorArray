@@ -8,12 +8,12 @@ import json
 # GPIO.setmode(GPIO.BOARD)
 
 def get_temperature(pin_to_circuit):
-    temperature = Adafruit_DHT.read_retry(pin_to_circuit, 11)[1]
+    temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, pin_to_circuit)[1]
     return temperature
 
 
 def get_humidity(pin_to_circuit):
-    humidity = Adafruit_DHT.read_retry(pin_to_circuit, 11)[0]
+    humidity = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, pin_to_circuit)[0]
     return humidity
 
 def main():
