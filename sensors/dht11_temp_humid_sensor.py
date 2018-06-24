@@ -5,15 +5,15 @@ import json
 
 # Refer to the pin numbers by their pin number since BCM codes change between Pi versions.
 # See https://raspberrypi.stackexchange.com/questions/12966/what-is-the-difference-between-board-and-bcm-for-gpio-pin-numbering
-GPIO.setmode(GPIO.BOARD)
+# GPIO.setmode(GPIO.BOARD)
 
 def get_temperature(pin_to_circuit):
-    temperature = Adafruit_DHT.read_retry(pin_to_circuit, 4)[1]
+    temperature = Adafruit_DHT.read_retry(pin_to_circuit, 11)[1]
     return temperature
 
 
 def get_humidity(pin_to_circuit):
-    humidity = Adafruit_DHT.read_retry(pin_to_circuit, 4)[0]
+    humidity = Adafruit_DHT.read_retry(pin_to_circuit, 11)[0]
     return humidity
 
 def main():
