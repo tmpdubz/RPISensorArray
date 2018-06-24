@@ -23,6 +23,8 @@ def main():
     args = parser.parse_args()
     data = {'humidity':get_humidity(args.pin), 'temperature':get_temperature(args.pin)}
     json_data = json.dumps(data)
+    print("returning json encoded data:")
+    print(json_data)
     return json_data
 
 main()
