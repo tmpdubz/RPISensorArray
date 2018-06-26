@@ -1,10 +1,11 @@
 import RPi.GPIO as GPIO
 import argparse
+import json
 import time
 
 # Refer to the pin numbers by their pin number since BCM codes change between Pi versions.
 # See https://raspberrypi.stackexchange.com/questions/12966/what-is-the-difference-between-board-and-bcm-for-gpio-pin-numbering
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 # rc_time gets the light level whenever it's called.
 def rc_time(pin_to_circuit):
@@ -21,3 +22,16 @@ def rc_time(pin_to_circuit):
         count += 1
 
     return count
+
+def main():
+    parser = argparse.ArgumentParser("get temperature and humidity from photo-sensor RC circuit on pin")
+    parser.add_argument('pin',
+        help="GPIO.BCM pin number connecting to the sensor circuit")
+    args = parser.parse_args()
+    data = {'light_level': rc_time(arg.pin)}
+    json_data = json.dumps(data)
+    print("returning json encoded data")
+    print(json_data)
+    return json_data
+
+main()
