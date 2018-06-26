@@ -1,6 +1,8 @@
 # How to use the `*_sensor.py` scripts
 
-* each sensor script will hold a function for polling the sensor value once
+Each of the sensor scripts will take in a pin number and return json encoded data for the relevant sensor.
+
+* TODO: figure out wtf to do about python dependencies, ugh.
 * TODO: make this OO with a sensor class
 * TODO: Sensor class should implement a formatter for each different type of sensor
 * TODO: be able to output json
