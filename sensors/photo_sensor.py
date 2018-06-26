@@ -28,7 +28,7 @@ def main():
     parser.add_argument('pin',
         help="GPIO.BCM pin number connecting to the sensor circuit")
     args = parser.parse_args()
-    data = {'light_level': rc_time(arg.pin)}
+    data = {'light_level': rc_time(args.pin)}
     json_data = json.dumps(data)
     print("returning json encoded data")
     print(json_data)
