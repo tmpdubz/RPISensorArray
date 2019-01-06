@@ -27,8 +27,18 @@ def main():
     parser = argparse.ArgumentParser("get temperature and humidity from photo-sensor RC circuit on pin")
     parser.add_argument('pin',
         help="GPIO.BCM pin number connecting to the sensor circuit")
+    parser.add_argument('location',
+        help="sensor location identifier for the sensor being used")
+    parser.add_argument('sensorID',
+        help="sensor identifier for the sensor being used in [location]")
     args = parser.parse_args()
-    data = {'light_level': rc_time(args.pin)}
+
+    data = {
+        'sensorID': args.sensorID,
+        'location': args.location,
+        'data': {'light_level': rc_time(args.pin)}
+    }
+
     json_data = json.dumps(data)
     print("returning json encoded data")
     print(json_data)
